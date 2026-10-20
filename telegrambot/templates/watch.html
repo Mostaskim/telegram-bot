@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Video - Ad</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #121212; color: #fff; padding-top: 50px; }
+        .btn { display: none; background: #0088cc; color: white; padding: 12px 24px; text-decoration: none; font-size: 18px; border-radius: 5px; margin-top: 20px; }
+        #timer { font-size: 20px; color: #ffcc00; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Please wait while your link is getting ready...</h2>
+    
+    <!-- Ekhane apnar Ad network ba script rakhte paren -->
+    <div id="timer">Please wait <span id="count">5</span> seconds...</div>
+    
+    <!-- Final Play Button ja user-ke bot-e niye jabe -->
+    <a id="finalBtn" class="btn" href="https://t.me/videosenderpalang_bot?start={{ video_id }}">Play Now & Get Video</a>
+
+    <script>
+        let timeLeft = 5;
+        let timerElement = document.getElementById("count");
+        let btn = document.getElementById("finalBtn");
+
+        let downloadTimer = setInterval(function(){
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if(timeLeft <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("timer").style.display = "none";
+                btn.style.display = "inline-block"; // Timer shesh hole button show korbe
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
