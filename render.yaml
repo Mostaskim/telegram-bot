@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: videofinderx-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: CHANNEL_ID
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DELETE_AFTER_SECONDS
+        value: "60"
